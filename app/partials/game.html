@@ -1,0 +1,16 @@
+<a href="#/"><</a>
+<h1>Game window</h1>
+<div id="canvas">
+	
+</div>
+<div class="hours">
+	<p ng-click="upHour()">+</p>
+	<p ng-click="downHour()">-</p>
+	<p>{{hour}}</p>
+</div>
+<div class="minutes">
+	<p ng-click="upMinute()">+</p>
+	<p ng-click="downMinute()">-</p>
+	<p>{{minute}}</p>
+</div>
+<button class="btn btn-primary" ng-click="checkHour()">Vérifier</button>
