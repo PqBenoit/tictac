@@ -20,7 +20,7 @@
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
-    <body>
+    <body ng-controller="MainCtrl">
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -29,6 +29,7 @@
         <div ng-view></div>
 
 
+        <!-- build:js scripts/vendor.js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/kineticjs/kinetic.js"></script>
         <script src="bower_components/angularjs/angular.js"></script>
@@ -36,9 +37,11 @@
 
         <script src="scripts/routes.js"></script>
         <script src="scripts/clock.js"></script>
+        <script src="scripts/controllers/mainCtrl.js"></script>
         <script src="scripts/controllers/homeCtrl.js"></script>
         <script src="scripts/controllers/optionsCtrl.js"></script>
         <script src="scripts/controllers/gameCtrl.js"></script>
         <script src="scripts/controllers/creditsCtrl.js"></script>
+        <!-- endbuild -->
 </body>
 </html>

@@ -1,13 +1,12 @@
 'use strict';
 
-app.controller('gameCtrl', ['$scope', function ($scope) {
-	
+app.controller('gameCtrl', ['$scope', '$rootScope',  function ($scope, $rootScope) {
 	$scope.clock = new clock();
-	$scope.clock.initialize();
+	$scope.clock.initialize($rootScope.selectedOption);
+	$scope.dayTime = $scope.clock.dayTime;
 
 	$scope.hour = 0;
 	$scope.minute = 0;
-	$scope.result;
 
 	$scope.upHour = function() {
 		if($scope.hour == 23){
@@ -41,8 +40,16 @@ app.controller('gameCtrl', ['$scope', function ($scope) {
 		}
 	}
 
-	$scope.checkHour = function(){
-		$scope.result = $scope.hour + ":" + $scope.minute;
-		console.log($scope.result);
+	$scope.checkHour = function() {
+		if($scope.hour == $scope.clock.hour && $scope.minute == $scope.clock.minute)
+			$scope.isRight = true;
+		else
+			$scope.isWrong = true;
+
+		console.log($scope.isRight)
+	}
+
+	$scope.reload = function() {
+		$scope.clock.initialize($rootScope.selectedOption);
 	}
 }]);

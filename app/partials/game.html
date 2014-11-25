@@ -1,16 +1,77 @@
-<a href="#/"><</a>
-<h1>Game window</h1>
-<div id="canvas">
-	
+<div class="page-container">
+	<div class="game-container">
+		<a href="#/" class='back_link'>
+			<img src="/images/retour.png">
+		</a>
+		
+		<div id="canvas"></div>
+
+		<p class="day-time">{{dayTime}}</p>
+		<!-- <div class="hours">
+			<div class="h-arrows">
+				<img src="/images/button_up.png" ng-click="upHour()">
+				</br>
+				<img src="/images/button_down.png" ng-click="downHour()">
+			</div>
+			<input type="text" value="{{hour}}"/>
+		</div>
+		<div class="minutes">
+			<p ng-click="upMinute()">+</p>
+			<p ng-click="downMinute()">-</p>
+			<p ng-model="minute">{{minute}}</p>
+		</div> -->
+		<div class="input-container">
+			<div class="hours">
+				<div class="h-arrows">
+					<img src="/images/button_up.png" ng-click="upHour()">
+					</br>
+					<img src="/images/button_down.png" ng-click="downHour()">
+				</div>
+				<div class="input">
+					<input type="text" value="{{hour}}" />
+					<label>h</label>
+				</div>
+			</div>
+			<div class="minutes">
+				<div class="input">
+					<input type="text" value="{{minute}}" />
+				</div>
+				<div class="m-arrows">
+					<img src="/images/button_up.png" ng-click="upMinute()">
+					</br>
+					<img src="/images/button_down.png" ng-click="downMinute()">
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-primary" ng-click="checkHour()">Vérifier</button>
+
+	</div>
+
+	<div class='is-right' ng-show="isRight">
+			<div class="answer-container">
+				<img ng-click="isRight = false" src="/images/cross.png" class="close" width="30" height="30">
+				<img src="/images/success.png" width="177" height="46">
+				<a href="#/">
+					<img src="/images/button_menu.png" width="109" height="41">
+				</a>
+				<a ng-click="reload(); isRight = false" href="#/game">
+					<img src="/images/button_replay.png" width="109" height="41">
+				</a>
+			</div>
+		</div>
+
+	<div class="is-wrong" ng-show="isWrong">
+		<div class="answer-container">
+			<img ng-click="isWrong = false" src="/images/cross.png" class="close" width="30" height="30">
+			<img src="/images/fail.png" width="177" height="46">
+			<p>L'heure exacte était {{clock.hour}} h {{clock.minute}} !</p>
+			<a href="#/">
+				<img src="/images/button_menu.png" width="109" height="41">
+			</a>
+			<a ng-click="reload(); isWrong = false" href="#/game">
+				<img src="/images/button_replay.png" width="109" height="41">
+			</a>
+		</div>
+	</div>
+
 </div>
-<div class="hours">
-	<p ng-click="upHour()">+</p>
-	<p ng-click="downHour()">-</p>
-	<p>{{hour}}</p>
-</div>
-<div class="minutes">
-	<p ng-click="upMinute()">+</p>
-	<p ng-click="downMinute()">-</p>
-	<p>{{minute}}</p>
-</div>
-<button class="btn btn-primary" ng-click="checkHour()">Vérifier</button>
